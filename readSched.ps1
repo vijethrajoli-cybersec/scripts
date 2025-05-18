@@ -1,0 +1,3 @@
+
+Register-ScheduledTask -TaskName "ReadTask" -Action (New-ScheduledTaskAction -Execute "C:\Program Files\PowerShell\7\pwsh.exe" -Argument "-File C:\Users\Administrator\Documents\readFile.ps1'") -Trigger (New-ScheduledTaskTrigger -Once -At (Get-Date).AddSeconds(5) -RepetitionInterval (New-TimeSpan -Minutes 3)) -User "NT AUTHORITY\SYSTEM" -RunLevel Highest
+Register-ScheduledTask -TaskName "WriteTask" -Action (New-ScheduledTaskAction -Execute "C:\Program Files\PowerShell\7\pwsh.exe" -Argument "-File C:\Users\Administrator\Documents\writeFile.ps1'") -Trigger (New-ScheduledTaskTrigger -Once -At (Get-Date).AddSeconds(5) -RepetitionInterval (New-TimeSpan -Minutes 10)) -User "NT AUTHORITY\SYSTEM" -RunLevel Highest
